@@ -85,7 +85,7 @@ class ConquerCityTask(TaskBase):
                     icon_path="./img/template/confirm.png",
                     description="确定",
                     confidence_threshold=0.8,
-                    delay=1.0
+                    delay=1.5
                 )
 
                 # 进攻
@@ -93,7 +93,7 @@ class ConquerCityTask(TaskBase):
                     icon_path="./img/template/attack.png",
                     description="进攻",
                     confidence_threshold=0.8,
-                    delay=1.0
+                    delay=1.5
                 )
                 
                 while True:

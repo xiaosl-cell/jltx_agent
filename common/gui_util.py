@@ -59,21 +59,52 @@ def capture_window(hwnd):
             print("窗口处于最小化状态，正在还原...")
             win32gui.ShowWindow(hwnd, 9)  # SW_RESTORE
             time.sleep(0.5)
+        
         # 将窗口设置为可见
         win32gui.ShowWindow(hwnd, 5)  # SW_SHOW
         time.sleep(0.5)
         
-        # 将窗口置于最前面
-        win32gui.SetForegroundWindow(hwnd)
+        # 尝试多种方法激活窗口
+        activation_success = False
+        
+        # 方法1: 直接使用SetForegroundWindow
+        try:
+            result = win32gui.SetForegroundWindow(hwnd)
+            if result != 0:
+                activation_success = True
+                print("方法1: SetForegroundWindow成功")
+        except Exception as e:
+            print(f"方法1: SetForegroundWindow失败: {e}")
+        
+        # 方法2: 如果方法1失败，尝试使用BringWindowToTop
+        if not activation_success:
+            try:
+                win32gui.BringWindowToTop(hwnd)
+                activation_success = True
+                print("方法2: BringWindowToTop成功")
+            except Exception as e:
+                print(f"方法2: BringWindowToTop失败: {e}")
+        
+        # 方法3: 最后尝试SetActiveWindow
+        if not activation_success:
+            try:
+                win32gui.SetActiveWindow(hwnd)
+                activation_success = True
+                print("方法3: SetActiveWindow成功")
+            except Exception as e:
+                print(f"方法3: SetActiveWindow失败: {e}")
+        
+        if activation_success:
+            print("窗口已成功激活")
+        else:
+            print("窗口激活失败，但将继续尝试截图")
         
         # 等待一下让窗口完全切换到前台
         time.sleep(0.5)
         
-        print("窗口已切换到前台")
-        
     except Exception as e:
-        print(f"切换窗口到前台时出错: {e}")
-        # 继续尝试截图，即使切换失败
+        print(f"窗口激活过程中出现异常: {e}")
+        print("将继续尝试截图...")
     
     # 获取窗口的DPI缩放比例
     dpi_scale = get_window_dpi_scale(hwnd)
