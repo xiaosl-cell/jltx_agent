@@ -1,6 +1,7 @@
 from agent.main_menu import MainMenu
 from common.utils import clear_screen, print_box, Colors
 
+
 def main():
     """游戏Agent主函数"""
     clear_screen()
@@ -14,6 +15,7 @@ def main():
     print()
     menu = MainMenu()
     menu.display()
+
 
 if __name__ == "__main__":
     main()
