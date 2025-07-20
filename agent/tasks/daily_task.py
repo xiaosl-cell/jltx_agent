@@ -291,13 +291,13 @@ class DailyTask(TaskBase):
                 # 创建坐标转换器
                 coord_converter = CoordinateConverter(hwnd)
 
-                # image_finder = ImageFinder(0.8)
+                image_finder = ImageFinder(0.8)
 
-                # sign_in(coord_converter)
+                sign_in(coord_converter)
 
-                # competition_among_warlords(coord_converter, image_finder)
+                competition_among_warlords(coord_converter, image_finder)
 
-                # songxin(coord_converter)
+                songxin(coord_converter)
 
                 yangqi(coord_converter)
 
