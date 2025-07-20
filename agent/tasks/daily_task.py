@@ -46,7 +46,8 @@ def sign_in(coord_converter: CoordinateConverter):
         delay=1.03
     )
 
-def competition_among_warlords(coord_converter: CoordinateConverter):
+
+def competition_among_warlords(coord_converter: CoordinateConverter, image_finder: ImageFinder):
     """群雄争霸"""
     # 群雄争霸
     coord_converter.find_and_click_icon(
@@ -142,6 +143,136 @@ def competition_among_warlords(coord_converter: CoordinateConverter):
             delay=1.0
         )
 
+        over = image_finder.find_icon_in_game("./img/template/goumaitili.png")
+        if over:
+            coord_converter.find_and_click_icon(
+                icon_path="./img/template/cancel.png",
+                description="下一场",
+                confidence_threshold=0.8,
+                delay=1.0
+            )
+
+            coord_converter.find_and_click_icon(
+                icon_path="./img/template/huiying.png",
+                description="回营",
+                confidence_threshold=0.8,
+                delay=1.0
+            )
+
+
+def songxin(coord_converter: CoordinateConverter):
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/shejiao.png",
+        description="社交",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/friend.png",
+        description="好友",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/yijiansongxin.png",
+        description="好友",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/close.png",
+        description="关闭",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+
+
+def yangqi(coord_converter: CoordinateConverter):
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/chengzhang.png",
+        description="成长",
+        confidence_threshold=0.8,
+    )
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/zhugong.png",
+        description="主公",
+        confidence_threshold=0.8,
+    )
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/zhanqi.png",
+        description="战旗",
+        confidence_threshold=0.8,
+    )
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/yangqi.png",
+        description="战旗",
+        confidence_threshold=0.8,
+    )
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/close.png",
+        description="关闭",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/close.png",
+        description="关闭",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/shiwei.png",
+        description="侍卫",
+        confidence_threshold=0.8,
+    )
+
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/tianjige.png",
+        description="天玑阁",
+        confidence_threshold=0.8,
+    )
+
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/yangua.png",
+        description="单次演卦",
+        confidence_threshold=0.8,
+    )
+
+    # 随意点击鼠标
+    import win32api
+    import win32con
+    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
+    time.sleep(0.5)
+    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
+
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/fanhui.png",
+        description="返回",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/close.png",
+        description="关闭",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/shiwei-huiying.png",
+        description="回营",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+
+
+
 
 class DailyTask(TaskBase):
     def __init__(self):
@@ -160,11 +291,16 @@ class DailyTask(TaskBase):
                 # 创建坐标转换器
                 coord_converter = CoordinateConverter(hwnd)
 
+                # image_finder = ImageFinder(0.8)
+
                 # sign_in(coord_converter)
 
-                competition_among_warlords(coord_converter)
+                # competition_among_warlords(coord_converter, image_finder)
+
+                # songxin(coord_converter)
+
+                yangqi(coord_converter)
 
 
         except Exception as e:
             print(e)
-
