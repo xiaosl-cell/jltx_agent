@@ -31,7 +31,43 @@ def sign_in(coord_converter: CoordinateConverter):
         confidence_threshold=0.8,
         delay=1.0
     )
-
+    
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/liangcaojuanxian.png",
+        description="粮草捐献",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/liangcao.png",
+        description="粮草",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/juntuanqiyun.png",
+        description="军团祈运",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/juntuanqiyun.png",
+        description="军团祈运",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    
+    for i in range(3):
+        coord_converter.find_and_click_icon(
+            icon_path="./img/template/qiyun.png",
+            description="祈运",
+            confidence_threshold=0.8,
+            delay=1.0
+        )
+    
     coord_converter.find_and_click_icon(
         icon_path="./img/template/close.png",
         description="关闭",
@@ -157,6 +193,8 @@ def competition_among_warlords(coord_converter: CoordinateConverter, image_finde
                 confidence_threshold=0.8,
                 delay=1.0
             )
+            
+            break
 
 
 def songxin(coord_converter: CoordinateConverter):
@@ -184,6 +222,13 @@ def songxin(coord_converter: CoordinateConverter):
     coord_converter.find_and_click_icon(
         icon_path="./img/template/close.png",
         description="关闭",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/shejiao.png",
+        description="社交",
         confidence_threshold=0.8,
         delay=1.0
     )
@@ -228,18 +273,21 @@ def yangqi(coord_converter: CoordinateConverter):
         icon_path="./img/template/shiwei.png",
         description="侍卫",
         confidence_threshold=0.8,
+        delay=1.0
     )
 
     coord_converter.find_and_click_icon(
         icon_path="./img/template/tianjige.png",
         description="天玑阁",
         confidence_threshold=0.8,
+        delay=2
     )
 
     coord_converter.find_and_click_icon(
         icon_path="./img/template/yangua.png",
         description="单次演卦",
         confidence_threshold=0.8,
+        delay=5
     )
 
     # 随意点击鼠标
@@ -270,7 +318,104 @@ def yangqi(coord_converter: CoordinateConverter):
         delay=1.0
     )
 
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/shenbing.png",
+        description="神兵",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
 
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/xunbingmibao.png",
+        description="寻兵觅宝",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    
+    for i in range(3):
+        coord_converter.find_and_click_icon(
+            icon_path="./img/template/dancimibao.png",
+            description="单次觅宝",
+            confidence_threshold=0.8,
+            delay=1.0
+        )
+        
+        coord_converter.find_and_click_icon(
+            icon_path="./img/template/fanhui.png",
+            description="返回",
+            confidence_threshold=0.8,
+            delay=1.0
+        )
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/close.png",
+        description="关闭",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/shenbing-huiying.png",
+        description="回营",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/zhanhun.png",
+        description="战魂",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/huoquzhanhun.png",
+        description="获取战魂",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/zhanhun-choujiang.png",
+        description="获取战魂",
+        confidence_threshold=0.8,
+        delay=3
+    )
+    
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/close.png",
+        description="关闭",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/jiangyin.png",
+        description="将印",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    
+    coord_converter.find_and_click_icon(
+        icon_path="./img/template/lingditansuo.png",
+        description="领地探索",
+        confidence_threshold=0.8,
+        delay=1.0
+    )
+    
+    for i in range(10):
+        coord_converter.find_and_click_icon(
+            icon_path="./img/template/lingditansuo.png",
+            description="探索",
+            confidence_threshold=0.8,
+            delay=1.0
+        )
+        
+            # 随意点击鼠标
+        import win32api
+        import win32con
+        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
+        time.sleep(0.5)
+        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
+    
 
 
 class DailyTask(TaskBase):
