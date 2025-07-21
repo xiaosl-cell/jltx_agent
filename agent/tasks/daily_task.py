@@ -147,11 +147,10 @@ def competition_among_warlords(coord_converter: CoordinateConverter, image_finde
         if over:
             coord_converter.find_and_click_icon(
                 icon_path="./img/template/cancel.png",
-                description="下一场",
+                description="取消",
                 confidence_threshold=0.8,
                 delay=1.0
             )
-
             coord_converter.find_and_click_icon(
                 icon_path="./img/template/huiying.png",
                 description="回营",
@@ -300,6 +299,7 @@ class DailyTask(TaskBase):
                 songxin(coord_converter)
 
                 yangqi(coord_converter)
+
 
 
         except Exception as e:
